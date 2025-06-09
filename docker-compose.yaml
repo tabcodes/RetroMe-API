@@ -8,9 +8,13 @@ services:
 
   db:
     image: postgres:17.5
+    restart: unless-stopped
+    container_name: db
     expose:
       - 5432
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=retrome_db
+    volumes:
+      - ./db:/var/lib/postgresql/data
