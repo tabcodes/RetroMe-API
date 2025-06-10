@@ -1,10 +1,15 @@
 
 services:
-  api:
+  web:
     build: ./app
     ports:
       - "8080:80"
     tty: true
+    restart: on-failure
+    volumes:
+      - ./app:/code/app
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432
 
   db:
     image: postgres:17.5
