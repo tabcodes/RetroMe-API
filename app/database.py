@@ -8,11 +8,8 @@ DATABASE_URL = os.environ.get("DATABASE_URL")
 if(DATABASE_URL == None):
     raise Exception("No DB credentials found in environment.")
 
-connect_args = {
-    "echo": True
-}
 
-engine = create_engine(DATABASE_URL, connect_args=connect_args)
+engine = create_engine(DATABASE_URL)
 
 def create_db_and_tables():
     SQLModel.metadata.create_all(engine)
