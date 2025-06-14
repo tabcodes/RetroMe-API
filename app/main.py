@@ -18,6 +18,13 @@ def read_root(session: SessionDep):
 
 @app.get("/_ping")
 def read_ping(session: SessionDep):
-    statement = text("SELECT 1;")
-    results = session.exec(statement)
-    return {"ping": results.all()}
+    database_ok = False;
+
+    try:
+        session.exec(text("SELECT 1;"))
+        database_ok = True;
+    except Exception as e:
+        raise Exception("DB connection failure: ", e)
+
+
+    return {"database": database_ok}
