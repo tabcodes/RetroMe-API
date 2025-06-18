@@ -9,7 +9,7 @@ if(DATABASE_URL == None):
     raise Exception("No DB credentials found in environment.")
 
 
-engine = create_engine(DATABASE_URL)
+engine = create_engine(DATABASE_URL, echo=True)
 
 def create_db_and_tables():
     SQLModel.metadata.create_all(engine)
