@@ -20,4 +20,4 @@ services:
     env_file:
       - ./app/.env
     volumes:
-      - ./db:/var/lib/postgresql/data
+      - ./db/data:/var/lib/postgresql/data
