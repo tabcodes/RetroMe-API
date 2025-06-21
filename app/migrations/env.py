@@ -21,7 +21,7 @@ if config.config_file_name is not None:
 
 # Models and schema imports
 
-from models import RetroBoard, RetroColumn
+from models import RetroBoard, RetroColumn, RetroTopic
 
 # add your model's MetaData object here
 # for 'autogenerate' support
